@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/assets/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="/public/assets/nprogress/nprogress.css">
-    <link rel="stylesheet" href="/public/less/index.css">
+    <?php include('./views/common/style.html') ?>
 </head>
 <body>
     <!-- 登录 -->
@@ -33,26 +30,26 @@
         </div>
     </div> 
     
-    <script src="/public/assets/jquery/jquery.min.js"></script>
-    <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
+    <?php include('./views/common/javascript.html') ?>
     <script type="text/javascript">
-        $('#login').click(function(){
-            $.ajax({
-                type:'post',
-                url:'/api/login',
-                data:$('#loginForm').serialize(),//获取表单的所有数据
-                dataType:'json',
-                success:function(data){
-                   if(data.code==200){
-                    //登录成功，跳转到主页面
-                    location.href ='/main/index'
-                   }else{
-                    alert('用户名或者密码错误')
-                   }
+    $('#login').click(function(){
+        var formdata = $('#loginForm').serialize();
+        $.ajax({
+            type : 'post',
+            url : '/api/login',
+            data : formdata,
+            dataType : 'json',
+            success : function(data){
+                if(data.code == 200){
+                    // 登录成功，跳转到主页面
+                    location.href = '/main/index'
+                }else{
+                    alert('用户名或者密码错误');
                 }
-            })
-            return false;
-        })
+            }
+        });
+        return false;
+    });
     </script>
 </body>
 </html>
