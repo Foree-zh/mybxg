@@ -1,15 +1,15 @@
+define(['jquery'],function(){
+	// NProgress.start();
 
-	NProgress.start();
-
-	NProgress.done();
-
+	// NProgress.done();
+	// 控制左侧菜单的折叠和展开
 	$('.navs ul').prev('a').on('click', function () {
 		$(this).next().slideToggle();
 	});
 
-
+	//退出功能
 	$('#loginout').click(function(){
-		console.log(123);
+		
 		$.ajax({
 			type:'post',
 			url:'/api/logout',
@@ -22,4 +22,16 @@
 
 		});
 	});
+})
+
+
+
+
+
+	
+
+	
+
+
+
 
