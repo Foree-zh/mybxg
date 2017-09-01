@@ -1,4 +1,7 @@
 define(['jquery','template','util','bootstrap'],function($,template,util){
+	var ret  =util.qs();
+	// console.log(ret)
+
 	// 设置导航菜单高亮
 	util.setMenu(location.pathname);
 	// $('.navs a[href="'+location.pathname+'"]').addClass('active')
