@@ -1,4 +1,7 @@
-define(['jquery','template','bootstrap'],function($,template){
+define(['jquery','template','util','bootstrap'],function($,template,util){
+	// 设置导航菜单高亮
+	util.setMenu(location.pathname);
+	// $('.navs a[href="'+location.pathname+'"]').addClass('active')
 	//调用后台接口获取列表数据
 	$.ajax({
 		type:'get',
