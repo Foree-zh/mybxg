@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <?php include('./views/common/style.html') ?>
+    <?php include('./views/common/style.html'); ?>
 </head>
 <body>
     <!-- 侧边栏 -->
     <div class="aside">
-        <?php include('./views/common/aside.html') ?>
+        <?php include('./views/common/aside.html'); ?>
     </div>
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
             <!-- 头部 -->
-                <?php include('./views/common/header.html') ?>
+            <?php include('./views/common/header.html'); ?>
             <!-- 客户列表 -->
             <div class="body course-list">
                 <!-- 面包屑 -->
@@ -48,9 +48,9 @@
                         </form>
                     </div>
                     <div id="courseInfo">
-                        <!-- 挖个坑 -->                      
+                        <!-- 挖个坑 -->
                     </div>
- 
+                    
                 </div>
                 <!-- 分页 -->
                 <ul class="pagination pull-right">
@@ -66,31 +66,30 @@
         </div>
     </div>
     <script type="text/template" id="courseTpl">
-        {{each list}}
-        <div class="course">
-            <div class="pic">
-                {{if $value.cs_cover}}
-                <img src="{{$value.cs_cover}}">
-                {{else}}
-                <img src="/uploads/course.png" >
-                {{/if}}   
-            </div>
-            <div class="info">
-                <a href="javascript:;">{{$value.cs_name}}</a>
-                <ul class="list-unstyled">
-                    <li>
-                        <span>讲师：{{$value.tc_name}}</span>
-                        <span>类别：{{$value.cs_name}}</span>
-                    </li>
-                    <li>
-                </ul>
-            </div>
+    {{each list}}
+    <div class="course">
+        <div class="pic">
+            {{if $value.cs_cover}}
+            <img src="{{$value.cs_cover}}">
+            {{else}}
+            <img src="/uploads/course.png">
+            {{/if}}
         </div>
-        {{/each}}          
+        <div class="info">
+            <a href="/course/basic?flag=1&cs_id={{$value.cs_id}}">{{$value.cs_name}}</a>
+            <ul class="list-unstyled">
+                <li>
+                    <span>讲师：{{$value.tc_name}}</span>
+                    <span>类别：{{$value.cg_name}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{/each}}
     </script>
-    <?php include('./views/common/javascript.html') ?>
+    <?php include('./views/common/javascript.html'); ?>
     <script type="text/javascript">
-        require(['courselist'])
+        require(['courselist']);
     </script>
 </body>
 </html>
