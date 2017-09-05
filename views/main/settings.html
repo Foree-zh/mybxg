@@ -31,8 +31,9 @@
         require(['settings'])
     </script>
     <script type="text/template" id="settingsTpl">
-                            <form action="" class="form-horizontal">
+                    <form id="settingsForm" class="form-horizontal">
                         <div class="form-group">
+                            <input type="hidden" name="tc_id" value="{{tc_id}}">
                             <label for="" class="col-xs-3 control-label">姓名</label>
                             <div class="col-xs-5">
                                 <p class="form-control-static">{{tc_name}}</p>
@@ -63,10 +64,10 @@
                             <label for="" class="col-xs-3 control-label">性别</label>
                             <div class="col-xs-3">
                                 <label class="radio-inline">
-                                    <input type="radio" name="tc_gender" value="1" {{if tc_gender=1}}checked{{/if}}> 男
+                                    <input type="radio" name="tc_gender" value="1" {{if tc_gender==1}}checked{{/if}}> 男
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="tc_gender" value="0" {{if tc_gender=0}}checked{{/if}}> 女
+                                    <input type="radio" name="tc_gender" value="0" {{if tc_gender==0}}checked{{/if}}> 女
                                 </label>
                             </div>
                         </div>
@@ -79,13 +80,13 @@
                         <div class="form-group">
                             <label for="" class="col-xs-3 control-label">籍贯</label>
                             <div class="col-xs-5" id="pcd">
-                              <select name="" id="p" data-id='{{tc_province}}'>
+                              <select name="tc_province" id="p" data-id='{{tc_province}}'>
                                   <option value="0">请选择省...</option>
                               </select>
-                              <select name="" id="c" data-id='{{tc_city}}'>
+                              <select name="tc_city" id="c" data-id='{{tc_city}}'>
                                   <option value="0">请选择市...</option>
                               </select>
-                              <select name="" id="d" data-id='{{tc_district}}'>
+                              <select name="tc_district" id="d" data-id='{{tc_district}}'>
                                   <option value="0">请选择区/县...</option>
                               </select>
                             </div>
